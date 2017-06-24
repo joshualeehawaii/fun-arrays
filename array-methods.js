@@ -68,7 +68,7 @@ datasetWithRoundedDollar = dataset.bankBalances.map((item) =>{
 var datasetWithRoundedDime = null;
 
 datasetWithRoundedDime = dataset.bankBalances.map((item) =>{
- console.log('this is the item = ', item);
+ //console.log('this is the item = ', item);
  return {
   amount: item.amount,
   state: item.state,
@@ -78,6 +78,17 @@ datasetWithRoundedDime = dataset.bankBalances.map((item) =>{
 
 // set sumOfBankBalances to be the sum of all value held at `amount` for each bank object
 var sumOfBankBalances = null;
+
+function add(a, b){
+  return a + b;
+}
+
+sumOfBankBalances = dataset.bankBalances.reduce((previous, current) =>{
+  // console.log('this is previous =', previous);
+  // console.log('this is current =', current);
+  // console.log('current.amount =', current.amount);
+  return Math.round((previous += parseFloat(current.amount)) * 100) / 100;
+},0);
 
 /*
   from each of the following states:
